@@ -2,22 +2,29 @@
 
 ID = '00:16:53:00:F5:A9'
 
+# Just the imports for using nxt
 import nxt.locator
 from nxt.motor import *
 from nxt.motor import Motor, PORT_A, PORT_B, PORT_C
 from nxt.sensor import Light, Sound, Touch, Ultrasonic
 from nxt.sensor import PORT_1, PORT_2, PORT_3, PORT_4
 
+# Locate the brick
 b = nxt.locator.find_one_brick()
 print "connected"
 
+# Here you can change the frequencies to change the notes
 FREQ_C = 523
 FREQ_D = 587
 FREQ_E = 659
+FREQ_F = 698
 FREQ_G = 784
 
-b.play_tone_and_wait(FREQ_C, 1000)
+# NXT plays a tone when is ready to play
 
+b.play_sound_file(False, 'Good.rso')
+
+# Reset the speed control (the motor tacho count)
 Motor(b, PORT_A).reset_position(True)
 
 if b:
@@ -33,14 +40,21 @@ if b:
                 time = 500
             else:
                 time = 1000
-            if note < 10:
-                b.play_tone_and_wait(FREQ_C, 100+time)
-            elif note >= 10 and note < 14:
-                b.play_tone_and_wait(FREQ_D, 100+time)
-            elif note >= 14 and note < 18:
-                b.play_tone_and_wait(FREQ_E, 100+time)
+            if note < 9:
+                b.play_tone(FREQ_C, 100+time)
+                print "C"
+            elif note >= 9 and note < 13:
+                b.play_tone(FREQ_D, 100+time)
+                print "D"
+            elif note >= 13 and note < 17:
+                b.play_tone(FREQ_E, 100+time)
+                print "E"
+            elif note >= 17 and note < 20:
+                b.play_tone(FREQ_F, 100+time)
+                print "F"
             else:
-                b.play_tone_and_wait(FREQ_G, 100+time)
+                b.play_tone(FREQ_G, 100+time)
+                print "G"
 
 else:
    print 'No NXT bricks found'
