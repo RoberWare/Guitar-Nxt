@@ -14,4 +14,5 @@ python main.py
 </code>
 
 **Important**
+
 Check the issues if you've got problems connecting the brick: https://github.com/RoberWare/Guitar-Nxt/issues/1
