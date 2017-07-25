@@ -27,34 +27,39 @@ b.play_sound_file(False, 'Good.rso')
 # Reset the speed control (the motor tacho count)
 Motor(b, PORT_A).reset_position(True)
 
+# If the brick has been found
 if b:
+    # Main while
     while True:
+        # When you press the button
         if Touch(b, PORT_4).get_sample():
+            # Obtain ultrasonic sample (distance)
             note = Ultrasonic(b, PORT_1).get_sample()
-            print note
+            # Obtain the position of the motor for adjust the note's lenght
             time = Motor(b, PORT_A).get_tacho().block_tacho_count
-            print time
+            # Associate the position of the motor with the lenght of the note
             if time > 0 and time < 20:
                 time = 100
             elif time > 20 and time < 40:
                 time = 500
             else:
                 time = 1000
+            # Associate the fret position with a note
             if note < 9:
                 b.play_tone(FREQ_C, 100+time)
-                print "C"
+                print "C", note, time
             elif note >= 9 and note < 13:
                 b.play_tone(FREQ_D, 100+time)
-                print "D"
+                print "D",note,time
             elif note >= 13 and note < 17:
                 b.play_tone(FREQ_E, 100+time)
-                print "E"
+                print "E",note,time
             elif note >= 17 and note < 20:
                 b.play_tone(FREQ_F, 100+time)
-                print "F"
+                print "F",note,time
             else:
                 b.play_tone(FREQ_G, 100+time)
-                print "G"
+                print "G",note,time
 
 else:
    print 'No NXT bricks found'
