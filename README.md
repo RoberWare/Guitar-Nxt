@@ -1,5 +1,6 @@
 # Guitar-Nxt
 Lego nxt guitar programmed using python.
+ORIGINAL PROJECT: http://www.nxtprograms.com/guitar/
 
 I made the guitar following these steps:
 http://www.nxtprograms.com/guitar/steps.html
