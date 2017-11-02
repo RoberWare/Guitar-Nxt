@@ -2,8 +2,12 @@
 Lego nxt guitar programmed using python.
 ORIGINAL PROJECT: http://www.nxtprograms.com/guitar/
 
-#How it works?
+**How it works?
+
 https://www.youtube.com/watch?v=4icH_DwJ9ZI
+
+
+**Building
 
 I made the guitar following these steps: http://www.nxtprograms.com/guitar/steps.html
 
@@ -17,5 +21,15 @@ python main.py
 </code>
 
 **Important**
+If you've got problems connecting the brick: 
 
-Check the issues if you've got problems connecting the brick: https://github.com/RoberWare/Guitar-Nxt/issues/1
+#Bluetooth
+If you have problems pairing the brick maybe you have to pair the brick with your computer before running the program.
+Just open the Bluetooth settings and pair with nxt, you'll need to write the same verification code in the brick.
+
+#Usb
+If you can't connect the brick using bluetooth try to connect the brick by usb to the computer.
+If it doesn't work try to change the usb port.
+
+#Anything works?
+Try to turn on the nxt, have you got batteries?
